@@ -1,9 +1,9 @@
 const toString = Object.prototype.toString
 
-export function isDate(val: any): boolean {
+export function isDate(val: any): val is Date {
   return toString.call(val) === "[object Date]"
 }
 
-export function isObject(val: any): boolean {
-  return typeof val === "object"
+export function isObject(val: any): val is Object {
+  return val !== null && typeof val === "object"
 }
