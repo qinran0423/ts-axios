@@ -2,7 +2,7 @@ import { transformRequest, transformResponse } from "./helpers/data"
 import { processHeaders } from "./helpers/headers"
 import { buildURL } from "./helpers/url"
 import { AxiosPromise, AxiosRequestConfig, AxiosResponse } from "./types"
-import xhr from "./xhr"
+import xhr from "./core/xhr"
 
 function axios(config: AxiosRequestConfig): AxiosPromise {
   processConfig(config)
@@ -21,7 +21,7 @@ function processConfig(config: AxiosRequestConfig): void {
 // 处理url
 function transformURL(config: AxiosRequestConfig): string {
   const { url, params } = config
-  return buildURL(url, params)
+  return buildURL(url!, params)
 }
 
 function transformRequestData(config: AxiosRequestConfig): any {
