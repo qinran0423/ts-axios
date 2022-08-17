@@ -1,6 +1,6 @@
-import { createError } from "./helpers/error"
-import { parseHeaders } from "./helpers/headers"
-import { AxiosPromise, AxiosRequestConfig, AxiosResponse } from "./types"
+import { createError } from "../helpers/error"
+import { parseHeaders } from "../helpers/headers"
+import { AxiosPromise, AxiosRequestConfig, AxiosResponse } from "../types"
 export default function xhr(config: AxiosRequestConfig): AxiosPromise {
   return new Promise((resolve, reject) => {
     const {
@@ -23,7 +23,7 @@ export default function xhr(config: AxiosRequestConfig): AxiosPromise {
     }
 
     // 初始化一个请求  第三个参数 async 表示是否异步执行操作
-    request.open(method.toUpperCase(), url, true)
+    request.open(method.toUpperCase(), url!, true)
 
     Object.keys(headers).forEach((name) => {
       if (data === null && name.toLowerCase() === "content-type") {
