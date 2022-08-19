@@ -2,13 +2,11 @@ import { AxiosPromise, AxiosRequestConfig, Method } from "../types"
 import dispatchRequest from "./dispatchRequest"
 
 export default class Axios {
-  constructor() {}
   request(config: AxiosRequestConfig): AxiosPromise {
     return dispatchRequest(config)
   }
 
   get(url: string, config?: AxiosRequestConfig): AxiosPromise {
-    console.log(url, config)
     return this._requestMethodWithoutData("get", url, config)
   }
 
