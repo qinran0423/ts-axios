@@ -13,9 +13,7 @@ export function isPlainObject(val: any): val is Object {
 }
 
 export function extend<T, U>(to: T, from: U): T & U {
-  // TODO
-  for (const key of Object.getOwnPropertyNames((from as any).__proto__)) {
-    console.log(key)
+  for (const key in from) {
     ;(to as T & U)[key] = from[key] as any
   }
   return to as T & U
